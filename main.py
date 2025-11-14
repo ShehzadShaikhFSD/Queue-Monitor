@@ -43,7 +43,7 @@ def get_queue_message_count():
     return message_count
 
 def send_email_alert(queue_length):
-    subject = f"Test CloudAMQP ALERT: {QUEUE_NAME} has {queue_length} items"
+    subject = f"CloudAMQP ALERT: {QUEUE_NAME} has {queue_length} items"
     html_body = f"""
     <html>
         <body style="font-family: Arial, sans-serif;">
@@ -98,6 +98,6 @@ def send_email_alert(queue_length):
 if __name__ == "__main__":
     queue_length = get_queue_message_count()
     print(f"Queue '{QUEUE_NAME}' has {queue_length} messages.")
-    if queue_length == 0 :
+    if queue_length >= 10 :
         send_email_alert(queue_length)
         print("Alert sent.")
