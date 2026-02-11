@@ -98,6 +98,6 @@ def send_email_alert(queue_length):
 if __name__ == "__main__":
     queue_length = get_queue_message_count()
     print(f"Queue '{QUEUE_NAME}' has {queue_length} messages.")
-    if queue_length >= 10 :
+    if queue_length >= 5 :
         send_email_alert(queue_length)
         print("Alert sent.")
